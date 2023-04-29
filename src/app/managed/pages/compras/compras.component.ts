@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material';
+import { Customer } from '../../interfaces/page.interface';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 export interface UserData {
@@ -49,10 +50,10 @@ const NAMES: string[] = [
   templateUrl: './compras.component.html',
   styleUrls: ['./compras.component.css']
 })
-export class ComprasComponent implements OnInit, AfterViewInit {
+export class ComprasComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
+  dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -60,6 +61,7 @@ export class ComprasComponent implements OnInit, AfterViewInit {
   sort!: MatSort;
   
   constructor() {
+
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
