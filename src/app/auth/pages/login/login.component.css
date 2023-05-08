@@ -19,20 +19,6 @@
     text-align: center;
 }
 
-.inputs {
-    width: 100%;
-}
-
-.title {
-    font-size: 30px;
-}
-
-.logo {
-    font-size: 14px;
-    color: #673ab7;
-    font-weight: bold;
-}
-
 button {
     width: 50%;
 }

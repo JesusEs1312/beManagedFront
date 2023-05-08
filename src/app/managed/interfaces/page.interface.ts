@@ -1,10 +1,13 @@
-export interface Customer {
+export interface Compra {
     id?: number,
-    name: string,
-    address: string,
-    email: string,
-    phone: string,
-    rfc: string,
-    fec_nac: string,
-    image: string
+    nombreProducto: string,
+    precio: number,
+    tipoProducto: string,
+    cantidad: number,
+    tipo: string,
+    metodo: string,
+    repetido: string,
+    motivo: string,
+    comentario: string,
+    imagen:string
 }

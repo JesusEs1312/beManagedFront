@@ -16,3 +16,31 @@ body, html {
     height: 100vh;
     margin: auto;
 }
+
+.container-center{
+    width: 1100px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 14px;
+    color: #673ab7;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 32px;
+}
+
+.inputs {
+    width: 100%;
+}
+
+.button {
+    width: 20%;
+}

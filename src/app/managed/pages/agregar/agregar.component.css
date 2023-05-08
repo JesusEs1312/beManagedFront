@@ -1,0 +1,19 @@
+.forms {
+    padding: 15px 0px;
+}
+
+.forms > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.mat-radio-button {
+    margin: 0 12px;
+}
+
+.cuestion {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
