@@ -18,5 +18,10 @@ export class ManagedService {
   public saveCompra(compra: Compra): Observable<Compra>{
     return this.http.post<Compra>(`${this.baseUrl}/compras`, compra);
   }
+
+  public findById(id: number): Observable<Compra>{
+    return this.http.get<Compra>(`${this.baseUrl}/compras/${id}`);
+  }
+
   constructor( private http: HttpClient) { }
 }
