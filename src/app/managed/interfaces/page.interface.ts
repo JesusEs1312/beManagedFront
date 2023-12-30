@@ -6,6 +6,7 @@ export interface Compra {
     cantidad: number,
     tipo: TipoCompra,
     metodo: FormasPago,
+    lugar: string,
     repetido: string,
     motivo: string,
     comentario: string,
@@ -15,7 +16,7 @@ export interface Compra {
 export enum FormasPago {
     Efectivo = 'Efectivo',
     BbvaAzulita = 'BBVA Azulita',
-    BbbvaAzul = 'BBVA Azul',
+    BbvaAzul = 'BBVA Azul',
     Nu = 'NU',
     RappiCard = 'RAPPI CARD'
 }
@@ -27,4 +28,13 @@ export enum TipoCompra {
     Proximidad = 'Proximidad',
     Descarte = 'Descarte',
     Compleja = 'Compleja'
+}
+
+export enum TipoProducto  {
+    ConvivenciaCB = 'Convivencia(consumo basico)',
+    ConvivenciaI  = 'Convivencia(impulso)',
+    ConvivenciaU  = 'Convivencia(urgencia)',
+    Comparacion   = 'Comparacion',
+    Especialidad  = 'Especialidad',
+    NoBuscado     = 'No buscado'
 }

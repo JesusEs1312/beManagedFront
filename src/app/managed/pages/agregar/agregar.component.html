@@ -5,25 +5,40 @@
     <div>
         <label class="title">Agregar</label>
     </div>
-    <div class="forms">
+    <form class="forms" [formGroup]="compraForm" (ngSubmit)="ngSubmit()">
         <div>
             <mat-form-field appearance="outline" class="inputs">
                 <mat-label>Nombre del producto</mat-label>
-                <input matInput>
+                <input 
+                    matInput
+                    type="text"
+                    required
+                    formControlName="nombreProducto">
             </mat-form-field>
             <mat-form-field appearance="outline" class="inputs">
                 <mat-label>Precio</mat-label>
-                <input matInput>
+                <input 
+                    matInput
+                    type="text"
+                    required
+                    formControlName="precio">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="outline" class="inputs">
                 <mat-label>Cantidad</mat-label>
-                <input matInput>
+                <input 
+                    matInput
+                    type="text"
+                    required
+                    formControlName="cantidad">
             </mat-form-field>
             <mat-form-field appearance="fill" class="inputs">
                 <mat-label>Tipo de compra</mat-label>
-                <mat-select [formControl]="selectFormControl" required>
+                <mat-select 
+                    [formControl]="selectFormControl" 
+                    required
+                    formControlName="tipo">
                     <mat-option>--</mat-option>
                     <mat-option *ngFor="let compra of compras" [value]="compra">
                     {{compra}}
@@ -35,7 +50,10 @@
         <div>
             <mat-form-field appearance="fill" class="inputs">
                 <mat-label>Forma de pago</mat-label>
-                <mat-select [formControl]="selectFormControl" required>
+                <mat-select 
+                    [formControl]="selectFormControl" 
+                    required
+                    formControlName="metodo">
                   <mat-option>--</mat-option>
                   <mat-option *ngFor="let forma of formas" [value]="forma">
                     {{forma}}
@@ -46,7 +64,10 @@
 
             <mat-form-field appearance="fill" class="inputs">
                 <mat-label>Tipo de producto</mat-label>
-                <mat-select [formControl]="selectFormControl" required>
+                <mat-select 
+                    [formControl]="selectFormControl" 
+                    required
+                    formControlName="tipoProducto">
                     <mat-option>--</mat-option>
                     <mat-option *ngFor="let producto of productos" [value]="producto">
                     {{producto}}
@@ -58,21 +79,33 @@
         <div>
             <mat-form-field appearance="outline" class="inputs">
                 <mat-label>Lugar de compra</mat-label>
-                <input matInput>
+                <input 
+                    matInput
+                    type="text"
+                    required
+                    formControlName="lugar">
             </mat-form-field>
             <mat-form-field appearance="outline" class="inputs">
                 <mat-label>Motivo</mat-label>
-                <input matInput>
+                <input 
+                    matInput
+                    type="text"
+                    required
+                    formControlName="motivo">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="outline" class="inputs">
                 <mat-label>Comentario</mat-label>
-                <input matInput>
+                <input 
+                    matInput
+                    type="text"
+                    required
+                    formControlName="comentario">
             </mat-form-field>
             <div class="cuestion">
                 <label>¿Has comprado anteriormente este producto?</label>
-                <mat-radio-group>
+                <mat-radio-group formControlName="repetido">
                     <mat-radio-button value="Si">Si</mat-radio-button>
                     <mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
@@ -81,5 +114,5 @@
         <div>
             <button class="button" mat-raised-button color="primary">Agregar</button>
         </div>
-    </div>
+    </form>
 </div>
