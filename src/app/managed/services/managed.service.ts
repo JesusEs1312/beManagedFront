@@ -21,7 +21,7 @@ export class ManagedService {
     return this.http.post<Compra>(`${this.baseUrl}/compras`, compra);
   }
 
-  public getCompraById(id: number): Observable<Compra>{
+  public getCompraById(id: string): Observable<Compra>{
     return this.http.get<Compra>(`${this.baseUrl}/compras/${id}`);
   }
 
@@ -30,7 +30,7 @@ export class ManagedService {
     return this.http.patch<Compra>(`${this.baseUrl}/compras/${compra.id}`, compra); 
   }
 
-  public deleteCompra(id: number): Observable<boolean>{
+  public deleteCompra(id: string): Observable<boolean>{
     return this.http.delete<boolean>(`${this.baseUrl}/compras/${id}`)
       .pipe(
         catchError(err => of(false)),

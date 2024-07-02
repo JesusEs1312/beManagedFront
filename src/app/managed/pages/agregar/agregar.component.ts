@@ -12,76 +12,77 @@ import { Compra, TipoCompra, FormasPago, TipoProducto } from '../../interfaces/p
 })
 export class AgregarComponent implements OnInit {
 
-  //Formas de pago
-  formas: String[] = [
-    'Efectivo',
-    'BBVA Azulita',
-    'BBVA Azul',
-    'NU',
-    'RAPPI CARD'
-  ];
-
-  //Tipos de compras
-  compras: String[] = [
-    'Habitual',
-    'Impulsiva',
-    'Ocasional',
-    'Proximidad',
-    'Descarte',
-    'Compleja'
-  ];
-
-  productos: String[] = [
-    'Convivencia(consumo basico)',
-    'Convivencia(impulso)',
-    'Convivencia(urgencia)',
-    'Comparacion',
-    'Especialidad',
-    'No buscado'
-  ];
-
-  selectFormControl = new FormControl< String | null>(null, Validators.required);
-
   public compraForm = new FormGroup({
-    id:             new FormControl<number>(0),
+    id:             new FormControl<string>(''),
     nombreProducto: new FormControl<string>(''),
-    precio:         new FormControl<string>(''),
-    tipoProducto:   new FormControl<TipoProducto>(TipoProducto.ConvivenciaCB),
-    cantidad:       new FormControl<string>(''),
+    precio:         new FormControl<number>(0),
+    tipoProducto:   new FormControl<TipoProducto>(TipoProducto.ConvivenciaI),
+    cantidad:       new FormControl<number>(0),
     tipo:           new FormControl<TipoCompra>(TipoCompra.Ocasional),
     metodo:         new FormControl<FormasPago>(FormasPago.Efectivo),
-    lugar:          new FormControl<string>(''), 
+    lugar:          new FormControl<string | null>(''), 
     repetido:       new FormControl<string>('No'),
-    motivo:         new FormControl<string>(''),
-    comentario:     new FormControl<string>(''),
-    imagen:         new FormControl<string>('')
+    motivo:         new FormControl<string | null>(''),
+    comentario:     new FormControl<string | null>(''),
+    imagen:         new FormControl<string | null>('')
   });
 
-  public compra: Compra = {
-    nombreProducto: '',
-    precio: 0,
-    tipoProducto: '',
-    cantidad: 0,
-    tipo: TipoCompra.Habitual,
-    metodo: FormasPago.BbvaAzul,
-    lugar: '',
-    repetido: 'No',
-    motivo: '',
-    comentario: '',
-    imagen: ''
-  }
+  public TipoProductoArray = [
+    {id: "ConvivenciaCB", desc: "Convivencia(consumo basico)"},
+    {id: "ConvivenciaI", desc: "Convivencia(impulso)"},
+    {id: "ConvivenciaU", desc: "Convivencia(urgencia)"},
+    {id: "Comparacion", desc: "Comparacion"},
+    {id: "Especialidad", desc: "Especialidad"},
+    {id: "NoBuscado", desc: "No buscado"}
+  ]
+
+  public TipoCompra = [
+    {id: "Habitual", desc: "Habitual"},
+    {id: "Impulsiva", desc: "Impulsiva"},
+    {id: "Ocasional", desc: "Ocasional"},
+    {id: "Proximidad", desc: "Proximidad"},
+    {id: "Descarte", desc: "Descarte"},
+    {id: "Compleja", desc: "Compleja"}
+  ]
+
+  public FormasPago = [
+    {id: "Efectivo", desc: "Efectivo"},
+    {id: "bbvaAzulita", desc: "BBVA Azulita"},
+    {id: "bbvaAzul", desc: "BBVA Azul"},
+    {id: "Nu", desc: "NU"},
+    {id: "RappiCard", desc: "Rappi Card"},
+    {id: "DiDiCard", desc: "DiDi Card"},
+    {id: "Stori", desc: "Stori"},
+    {id: "HSBCCard", desc: "HSBC Card"}
+  ]
   
-  constructor(private managedService: ManagedService,
-              private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+  constructor(private managedService: ManagedService) { }
+
+  get currentCompra(): Compra {
+    const compra = this.compraForm.value as Compra;
+
+    return compra;
+  }
 
   ngOnInit(): void {}
 
   ngSubmit(): void {
-    console.log({
-      formIsValid: this.compraForm.valid,
-      value: this.compraForm.value
-    });
+    if(this.compraForm.invalid){ return }
+
+    if(this.currentCompra.id){
+      this.managedService.updateCompra(this.currentCompra)
+        .subscribe(compra => {
+          //TODO: Mostrar snackbar
+        });
+
+      return;
+    }
+
+    this.managedService.saveCompra(this.currentCompra)
+      .subscribe(compra => {
+        //TODO: mostrar snackbar y navegar a lista de compras
+        console.log(compra);
+      });
   }
 
 }

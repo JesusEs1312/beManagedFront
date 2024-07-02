@@ -1,5 +1,5 @@
 export interface Compra {
-    id?: number,
+    id?: string,
     nombreProducto: string,
     precio: number,
     tipoProducto: string,
@@ -18,7 +18,10 @@ export enum FormasPago {
     BbvaAzulita = 'BBVA Azulita',
     BbvaAzul = 'BBVA Azul',
     Nu = 'NU',
-    RappiCard = 'RAPPI CARD'
+    RappiCard = 'RAPPI CARD',
+    DidiCard = 'DiDi Card',
+    Stori = 'Stori',
+    HSBCCard = 'HSBC Card'
 }
 
 export enum TipoCompra {
