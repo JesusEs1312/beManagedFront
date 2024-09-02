@@ -1,0 +1,43 @@
+.font-date {
+    color: #6e50a1;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.detalles-compra {
+    display: flex;
+    flex-direction: column;
+}
+
+.detalles-container-label {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.detalles-container-label label{
+    padding: 0.75em;
+}
+
+.compra-title {
+    background-color: #673ab7;
+    color: aliceblue;
+}
+
+.compra-value {
+    font-weight: 600;
+    border: 1px solid #673ab7;
+}
+
+.one-column {
+    grid-template-columns: 1fr;
+}
+
+.border-left {
+    border-left: 1px solid #fff;
+}
+
+.img-compra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

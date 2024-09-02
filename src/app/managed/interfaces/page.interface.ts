@@ -10,7 +10,8 @@ export interface Compra {
     repetido: string,
     motivo: string,
     comentario: string,
-    imagen:string
+    imagen:string,
+    createAt: string
 }
 
 export enum FormasPago {

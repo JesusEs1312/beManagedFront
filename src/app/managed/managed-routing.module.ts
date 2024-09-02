@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ComprasComponent } from './pages/compras/compras.component';
 import { AgregarComponent } from './pages/agregar/agregar.component';
+import { VistaCompletaComponent } from './pages/vista-completa/vista-completa.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: 'agregar',
         component: AgregarComponent
+      },
+      {
+        path: 'completo/:id',
+        component: VistaCompletaComponent
       }
     ]
   }

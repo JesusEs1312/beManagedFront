@@ -1,0 +1,63 @@
+<div class="container-center">
+    <div>
+        <label class="logo">be managed!</label>
+    </div>
+    <div class="header">
+        <label class="title">Detalle de compra</label>
+        <div>
+            <label><span class="title">Fecha:</span> <span class="font-date"> {{compra.createAt | date:'fullDate'}}</span></label>
+        </div>
+    </div>
+    <div class="container-compra">
+        <div class="detalles-compra">
+            <div class="detalles-container-label">
+                <label class="compra-title" style="border-radius: 0.5em 0px 0px 0px;">Nombre del producto:</label>
+                <label class="compra-title border-left" style="border-radius: 0em 0.5em 0px 0px;">Precio:</label>
+            </div>
+            <div class="detalles-container-label">
+                <label class="compra-value">{{compra.nombreProducto}}</label>
+                <label class="compra-value">${{compra.precio}}</label>
+            </div>
+            <div class="detalles-container-label">
+                <label class="compra-title">Cantidad:</label>
+                <label class="compra-title border-left">Tipo de compra:</label>
+            </div>
+            <div class="detalles-container-label">
+                <label class="compra-value" >{{compra.cantidad}}</label>
+                <label class="compra-value" >{{compra.tipo}}</label>
+            </div>
+            <div class="detalles-container-label">
+                <label class="compra-title">Tipo de producto:</label>
+                <label class="compra-title border-left">Forma de pago:</label>
+            </div>
+            <div class="detalles-container-label">
+                <label class="compra-value" >{{compra.tipoProducto}}</label>
+                <label class="compra-value" >{{compra.metodo}}</label>
+            </div>
+            <div class="detalles-container-label">
+                <label class="compra-title">Lugar:</label>
+                <label class="compra-title border-left">Repetido:</label>
+            </div>
+            <div class="detalles-container-label">
+                <label class="compra-value" >{{compra.lugar}}</label>
+                <label class="compra-value" >{{compra.repetido}}</label>
+            </div>
+            <div class="detalles-container-label one-column">
+                <label class="compra-title">Motivo:</label>
+            </div>
+            <div class="detalles-container-label one-column">
+                <label class="compra-value">{{compra.motivo}}</label>
+            </div>
+            <div class="detalles-container-label one-column">
+                <label class="compra-title">Comentario:</label>
+            </div>
+            <div class="detalles-container-label one-column">
+                <label class="compra-value" style="border-radius: 0px 0px 0.5em 0.5em; margin-bottom: 1em;">{{compra.comentario}}</label>
+            </div>
+            <div>
+                <button mat-raised-button color="primary" routerLink="/home/compras">Volver</button>
+                <button mat-raised-button color="primary" style="margin-left: 15px;">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { ManagedRoutingModule } from './managed-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { AgregarComponent } from './pages/agregar/agregar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { VistaCompletaComponent } from './pages/vista-completa/vista-completa.component'; 
 
 
 
@@ -12,7 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     ComprasComponent,
-    AgregarComponent
+    AgregarComponent,
+    VistaCompletaComponent
   ],
   imports: [
     CommonModule,
